@@ -22,6 +22,17 @@ const userSchema = new Schema(
     },
     token: { type: String, default: "" },
     avatarURL: { type: String, required: true },
+
+    // adding verify and verificationCode fields to mongoose schema for verification via email
+    verify: {
+      type: Boolean,
+      default: false,
+    },
+    verificationToken: {
+      type: String,
+      default: "",
+      required: [true, "Verify token is required"],
+    },
   },
   { versionKey: false, timestamps: true }
 );
